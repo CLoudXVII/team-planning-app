@@ -1,1 +1,1 @@
-export const AUTH_COOKIE = "team-planning-app";
+export const AUTH_COOKIE = "auth_token";
