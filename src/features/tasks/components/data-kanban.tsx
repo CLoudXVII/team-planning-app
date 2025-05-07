@@ -84,40 +84,32 @@ export const DataKanban = ({
     setTasks((prevTasks) => {
       const newTasks = { ...prevTasks };
 
-      // Safely remove the task from the source column
       const sourceColumn = [...newTasks[sourceStatus]];
       const [movedTask] = sourceColumn.splice(source.index, 1);
 
-      // If there's no moved task (shouldn't happen, but just in case), return the previous state
       if (!movedTask) {
         console.error("No task found at the source index");
         return prevTasks;
       }
 
-      // Create a new task object with potentially updated status
       const updatedMovedTask = sourceStatus !== destStatus
         ? { ...movedTask, status: destStatus }
         : movedTask;
 
-      // Update the source column
       newTasks[sourceStatus] = sourceColumn;
 
-      // Add the task to the destination column
       const destColumn = [...newTasks[destStatus]];
       destColumn.splice(destination.index, 0, updatedMovedTask);
       newTasks[destStatus] = destColumn;
 
-      // Prepare minimal update payloads
       updatesPayload = [];
 
-      // Always update the moved task
       updatesPayload.push({
         $id: updatedMovedTask.$id,
         status: destStatus,
         position: Math.min((destination.index + 1) * 1000, 1_000_000)
       });
 
-      // Update positions for affected tasks in the destination column
       newTasks[destStatus].forEach((task, index) => {
         if (task && task.$id !== updatedMovedTask.$id) {
           const newPosition = Math.min((index + 1) * 1000, 1_000_000);
@@ -131,7 +123,6 @@ export const DataKanban = ({
         }
       });
 
-      // If the task moved between columns, update positions in the source column
       if (sourceStatus !== destStatus) {
         newTasks[sourceStatus].forEach((task, index) => {
           if (task) {
