@@ -1,33 +1,27 @@
 "use client";
 
-import Image from "next/image";
-import React, { useRef } from "react";
-
 import { z } from "zod";
+import { useRef } from "react";
+import Image from "next/image";
 import { toast } from "sonner";
-import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useConfirm } from "@/hooks/use-confirm";
-import { DottedSeparator } from "@/components/dotted-separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
+import { DottedSeparator } from "@/components/dotted-separator";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 
@@ -45,8 +39,14 @@ interface EditWorkspaceFormProps {
 export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceFormProps) => {
   const router = useRouter();
   const { mutate, isPending } = useUpdateWorkspace();
-  const { mutate: deleteWorkspace, isPending: isDeletingWorkspace } = useDeleteWorkspace();
-  const { mutate: resetInviteCode, isPending: isResettingInviteCode } = useResetInviteCode();
+  const { 
+    mutate: deleteWorkspace, 
+    isPending: isDeletingWorkspace
+  } = useDeleteWorkspace();
+  const { 
+    mutate: resetInviteCode, 
+    isPending: isResettingInviteCode
+  } = useResetInviteCode();
 
   const [DeleteDialog, confirmDelete] = useConfirm(
     "Delete Workspace",
@@ -54,14 +54,14 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
     "destructive",
   );
 
-  const [ResetDialong, confirmReset] = useConfirm(
+  const [ResetDialog, confirmReset] = useConfirm(
     "Reset invite link",
-    "This will invalidate the current invite link.",
+    "This will invalidate the current invite link",
     "destructive",
   );
 
   const inputRef = useRef<HTMLInputElement>(null);
-
+  
   const form = useForm<z.infer<typeof updateWorkspaceSchema>>({
     resolver: zodResolver(updateWorkspaceSchema),
     defaultValues: {
@@ -100,10 +100,9 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
       image: values.image instanceof File ? values.image : "",
     };
 
-    mutate({ form: finalValues, param: { workspaceId: initialValues.$id } }, {
-      onSuccess: () => {
-        form.reset();
-      },
+    mutate({
+      form: finalValues,
+      param: { workspaceId: initialValues.$id }
     });
   };
 
@@ -124,11 +123,11 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
   return (
     <div className="flex flex-col gap-y-4">
       <DeleteDialog />
-      <ResetDialong />
+      <ResetDialog />
       <Card className="w-full h-full border-none shadow-none">
         <CardHeader className="flex flex-row items-center gap-x-4 p-7 space-y-0">
           <Button size="sm" variant="secondary" onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.$id}`)}>
-            <ArrowLeftIcon className="size-4" />
+            <ArrowLeftIcon className="size-4 mr-2" />
             Back
           </Button>
           <CardTitle className="text-xl font-bold">
@@ -142,7 +141,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="flex flex-col gap-y-4">
-                <FormField 
+                <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
@@ -151,7 +150,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                         Workspace Name
                       </FormLabel>
                       <FormControl>
-                        <Input 
+                        <Input
                           {...field}
                           placeholder="Enter workspace name"
                         />
@@ -160,16 +159,16 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                     </FormItem>
                   )}
                 />
-                <FormField 
+                <FormField
                   control={form.control}
                   name="image"
                   render={({ field }) => (
                     <div className="flex flex-col gap-y-2">
                       <div className="flex items-center gap-x-5">
                         {field.value ? (
-                          <div className="size-[72px] relative rounded-md overflow-hidden"> 
-                            <Image 
-                              alt="logo"
+                          <div className="size-[72px] relative rounded-md overflow-hidden">
+                            <Image
+                              alt="Logo"
                               fill
                               className="object-cover"
                               src={
@@ -188,11 +187,13 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                         )}
                         <div className="flex flex-col">
                           <p className="text-sm">Workspace Icon</p>
-                          <p className="text-sm text-muted-foreground">JPG, PNG, SVG or JPEG, max 1mb</p>
-                          <input 
+                          <p className="text-sm text-muted-foreground">
+                            JPG, PNG, SVG or JPEG, max 1mb
+                          </p>
+                          <input
                             className="hidden"
                             type="file"
-                            accept=".jpg, .jpeg, .png, .svg"
+                            accept=".jpg, .png, .jpeg, .svg"
                             ref={inputRef}
                             onChange={handleImageChange}
                             disabled={isPending}
@@ -256,23 +257,23 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
         </CardContent>
       </Card>
 
-      <Card className="w-full h-full border-none shadow-none">
+      <Card className="w-ful h-full border-none shadow-none">
         <CardContent className="p-7">
           <div className="flex flex-col">
             <h3 className="font-bold">Invite Members</h3>
             <p className="text-sm text-muted-foreground">
-              Use the invite link to add memebers to your workspace.
+              Use the invite link to add members to your workspace.
             </p>
             <div className="mt-4">
               <div className="flex items-center gap-x-2">
-                <Input disabled value={fullInviteLink} />
-                <Button
-                  onClick={handleCopyInviteLink}
-                  variant="secondary"
-                  className="size-12"
-                >
-                  <CopyIcon className="size-5" />
-                </Button>
+              <Input disabled value={fullInviteLink} />
+              <Button
+                onClick={handleCopyInviteLink}
+                variant="secondary"
+                className="size-12"
+              >
+                <CopyIcon className="size-5" />
+              </Button>
               </div>
             </div>
             <DottedSeparator className="py-7" />
@@ -290,7 +291,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
         </CardContent>
       </Card>
 
-      <Card className="w-full h-full border-none shadow-none">
+      <Card className="w-ful h-full border-none shadow-none">
         <CardContent className="p-7">
           <div className="flex flex-col">
             <h3 className="font-bold">Danger Zone</h3>
