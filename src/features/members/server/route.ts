@@ -8,7 +8,7 @@ import { createAdminClient } from "@/lib/appwrite";
 import { sessionMiddleware } from "@/lib/session-middleware";
 
 import { getMember } from "../utils";
-import { MemberRole } from "../types";
+import { Member, MemberRole } from "../types";
 
 const app = new Hono()
   .get("/", sessionMiddleware, zValidator("query", z.object({ workspaceId: z.string() })), async (c) => {
@@ -27,7 +27,7 @@ const app = new Hono()
       return c.json({ error: "Unauthorized" }, 401);
     }
 
-    const members = await databases.listDocuments(
+    const members = await databases.listDocuments<Member>(
       DATABASE_ID,
       MEMBERS_ID,
       [Query.equal("workspaceId", workspaceId)]
