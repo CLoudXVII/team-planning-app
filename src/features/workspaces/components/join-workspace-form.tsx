@@ -41,7 +41,7 @@ export const JoinWorkspaceForm = ({ initialValues }: JoinWorkspaceFormProps) => 
           Приглашение
         </CardTitle>
         <CardDescription>
-          Вас пригласили присоединиться к рабочей области <strong>"{initialValues.name}"</strong>
+          Вас пригласили присоединиться к рабочей области <strong>&quot{initialValues.name}&quot</strong>
         </CardDescription>
       </CardHeader>
       <div className="px-7">

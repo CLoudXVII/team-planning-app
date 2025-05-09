@@ -110,7 +110,7 @@ export const MembersList = () => {
                     onClick={() => handleDeleteMember(member.$id)}
                     disabled={isDeletingMember}
                   >
-                    Удалить участника "{member.name}"
+                    Удалить участника &quot{member.name}&quot
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
