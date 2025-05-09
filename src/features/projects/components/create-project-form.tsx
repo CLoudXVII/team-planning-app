@@ -33,20 +33,22 @@ interface CreateProjectFormProps {
 };
 
 export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
+  const schema = createProjectSchema.omit({ workspaceId: true });
+
   const workspaceId = useWorkspaceId();
   const router = useRouter();
   const { mutate, isPending } = useCreateProject();
 
   const inputRef = useRef<HTMLInputElement>(null);
   
-  const form = useForm<z.infer<typeof createProjectSchema>>({
-    resolver: zodResolver(createProjectSchema.omit({ workspaceId: true })),
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof createProjectSchema>) => {
+  const onSubmit = (values: z.infer<typeof schema>) => {
     const finalValues = {
       ...values,
       workspaceId,

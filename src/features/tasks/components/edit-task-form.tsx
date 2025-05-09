@@ -41,17 +41,19 @@ interface EditTaskFormProps {
 };
 
 export const EditTaskForm = ({ onCancel, projectOptions, memberOptions, initialValues }: EditTaskFormProps) => {
+  const schema = createTaskSchema.omit({ workspaceId: true, description: true });
+
   const { mutate, isPending } = useUpdateTask();
 
-  const form = useForm<z.infer<typeof createTaskSchema>>({
-    resolver: zodResolver(createTaskSchema.omit({ workspaceId: true, description: true, })),
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
     defaultValues: {
       ...initialValues,
       dueDate: initialValues.dueDate ? new Date(initialValues.dueDate) : undefined,
     },
   });
 
-  const onSubmit = (values: z.infer<typeof createTaskSchema>) => {
+  const onSubmit = (values: z.infer<typeof schema>) => {
     mutate({ json: values, param: { taskId: initialValues.$id } }, {
       onSuccess: () => {
         form.reset();
