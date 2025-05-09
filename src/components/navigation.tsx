@@ -11,25 +11,25 @@ import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
 const routes = [
   {
-    label: "Home",
+    label: "Главная",
     href: "",
     icon: GoHome,
     activeIcon: GoHomeFill,
   },
   {
-    label: "My Tasks",
+    label: "Задачи",
     href: "/tasks",
     icon: GoCheckCircle,
     activeIcon: GoCheckCircleFill,
   },
   {
-    label: "Settings",
+    label: "Настройки",
     href: "/settings",
     icon: SettingsIcon,
     activeIcon: SettingsIcon,
   },
   {
-    label: "Members",
+    label: "Участники",
     href: "/members",
     icon: UsersIcon,
     activeIcon: UsersIcon,

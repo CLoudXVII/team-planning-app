@@ -16,7 +16,7 @@ export const WorkspaceIdSettingsClient = () => {
   }
 
   if (!initialValues) {
-    return <PageError message="Project not found" />
+    return <PageError message="Проект не найден" />
   }
 
   return (

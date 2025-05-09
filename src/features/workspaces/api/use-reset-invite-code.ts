@@ -25,13 +25,13 @@ export const useResetInviteCode = () => {
       return await response.json();
     },
     onSuccess: ({ data }) => {
-      toast.success("Invite code reset");
+      toast.success("Код приглашения  сброшен");
 
       queryClient.invalidateQueries({ queryKey: ["workspaces"] });
       queryClient.invalidateQueries({ queryKey: ["workspace", data.$id] });
     },
     onError: () => {
-      toast.error("Failed to reset invite code");
+      toast.error("Не удалось сбросить код приглашения");
     },
   });
 

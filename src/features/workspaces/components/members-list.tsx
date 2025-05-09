@@ -21,8 +21,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 export const MembersList = () => {
   const workspaceId = useWorkspaceId();
   const [ConfirmDialog, confirm] = useConfirm(
-    "Remove Member",
-    "This member will be removed from the workspace",
+    "Удалить участника",
+    "Этот участник будет удален из рабочего пространства",
     "destructive"
   );
 
@@ -61,11 +61,11 @@ export const MembersList = () => {
         <Button asChild variant="secondary" size="sm">
           <Link href={`/workspaces/${workspaceId}`}>
             <ArrowLeftIcon className="size-4 mr-2" />
-            Back
+            Назад
           </Link>
         </Button>
         <CardTitle className="text-xl font-bold">
-          Members List
+          Список участников
         </CardTitle>
       </CardHeader>
       <div className="px-7">
@@ -96,21 +96,21 @@ export const MembersList = () => {
                     onClick={() => handleUpdateMember(member.$id, MemberRole.ADMIN)}
                     disabled={isUpdatingMmeber}
                   >
-                    Set as Administrator
+                    Сделать администратором
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     className="font-medium"
                     onClick={() => handleUpdateMember(member.$id, MemberRole.MEMBER)}
                     disabled={isUpdatingMmeber}
                   >
-                    Set as Member
+                    Сделать участником
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     className="text-red-500"
                     onClick={() => handleDeleteMember(member.$id)}
                     disabled={isDeletingMember}
                   >
-                    Remove {member.name}
+                    Удалить участника "{member.name}"
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

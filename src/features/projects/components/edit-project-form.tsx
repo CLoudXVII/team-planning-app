@@ -43,8 +43,8 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
   } = useDeleteProject();
 
   const [DeleteDialog, confirmDelete] = useConfirm(
-    "Delete Project",
-    "This action cannot be undone.",
+    "Удалить проект",
+    "Это действие невозможно обратить.",
     "destructive",
   );
 
@@ -98,7 +98,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
         <CardHeader className="flex flex-row items-center gap-x-4 p-7 space-y-0">
           <Button size="sm" variant="secondary" onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.workspaceId}/projects/${initialValues.$id}`)}>
             <ArrowLeftIcon className="size-4 mr-2" />
-            Back
+            Назад
           </Button>
           <CardTitle className="text-xl font-bold">
             {initialValues.name}
@@ -117,12 +117,12 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>
-                        Project Name
+                        Название проекта
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder="Enter project name"
+                          placeholder="Введите название проекта"
                         />
                       </FormControl>
                       <FormMessage />
@@ -156,9 +156,9 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                           </Avatar>
                         )}
                         <div className="flex flex-col">
-                          <p className="text-sm">Project Icon</p>
+                          <p className="text-sm">Иконка проекта</p>
                           <p className="text-sm text-muted-foreground">
-                            JPG, PNG, SVG or JPEG, max 1mb
+                            JPG, PNG, SVG или JPEG, максимум 1МБ
                           </p>
                           <input
                             className="hidden"
@@ -182,7 +182,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                                 }
                               }}
                             >
-                              Remove Image
+                              Удалить изображение
                             </Button>
                           ) : (
                             <Button
@@ -193,7 +193,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                               className="w-fit mt-2"
                               onClick={() => inputRef.current?.click()}
                             >
-                              Upload Image
+                              Загрузить изображение
                             </Button>
                           )}
                         </div>
@@ -212,14 +212,14 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
                   disabled={isPending}
                   className={cn(!onCancel && "invisible")}
                 >
-                  Cancel
+                  Отмена
                 </Button>
                 <Button
                   disabled={isPending}
                   type="submit"
                   size="lg"
                 >
-                  Save Changes
+                  Применить
                 </Button>
               </div>
             </form>
@@ -230,9 +230,9 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
       <Card className="w-ful h-full border-none shadow-none">
         <CardContent className="p-7">
           <div className="flex flex-col">
-            <h3 className="font-bold">Danger Zone</h3>
+            <h3 className="font-bold">Опасная зона</h3>
             <p className="text-sm text-muted-foreground">
-              Deleting a project is irreversible and will remove all associated data.
+              Удаление проекта необратимо и приведет к удалению всех связанных с ним данных.
             </p>
             <DottedSeparator className="py-7" />
             <Button
@@ -243,7 +243,7 @@ export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProp
               disabled={isPending || isDeletingProject}
               onClick={handleDelete}
             >
-              Delete Project
+              Удалить проект
             </Button>
           </div>
         </CardContent>

@@ -117,7 +117,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 
   const handleCopyInviteLink = () => {
     navigator.clipboard.writeText(fullInviteLink)
-      .then(() => toast.success("Invite link copied to clipboard"));
+      .then(() => toast.success("Код приглашения скопирован в буфер обмена"));
   };
 
   return (

@@ -49,16 +49,16 @@ export const SignUpCard = () => {
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">
       <CardHeader className="flex items-center justify-center text-center p-7">
         <CardTitle className="text-2xl">
-          Sign Up
+          Регистрация
         </CardTitle>
         <CardDescription>
-          By signing up, you agree to our{" "}
+          Регистрируясь, вы соглашаетесь с нашей{" "}
           <Link href="/privacy">
-            <span className="text-blue-700">Privacy Policy</span>
+            <span className="text-blue-700">Политикой конфиденциальности</span>
           </Link>{" "}
-          and{" "}
+          и{" "}
           <Link href="/terms">
-            <span className="text-blue-700">Terms of Service</span>
+            <span className="text-blue-700">Условиями предоставления услуг</span>
           </Link>
         </CardDescription>
       </CardHeader>
@@ -77,7 +77,7 @@ export const SignUpCard = () => {
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Enter your name"
+                      placeholder="Введите свое имя"
                     />
                   </FormControl>
                   <FormMessage />
@@ -93,7 +93,7 @@ export const SignUpCard = () => {
                     <Input
                       {...field}
                       type="email"
-                      placeholder="Enter email address"
+                      placeholder="Введите адрес электронной почты"
                     />
                   </FormControl>
                   <FormMessage />
@@ -109,7 +109,7 @@ export const SignUpCard = () => {
                     <Input
                       {...field}
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder="Введите свой пароль"
                     />
                   </FormControl>
                   <FormMessage />
@@ -117,7 +117,7 @@ export const SignUpCard = () => {
               )}
             />
             <Button disabled={isPending} size="lg" className="w-full">
-              Register
+              Зарегистрироваться
             </Button>
           </form>
         </Form>
@@ -134,7 +134,7 @@ export const SignUpCard = () => {
           className="w-full"
         >
           <FcGoogle className="mr-2 size-5" />
-          Login with Google
+          Войти с помощью Google
         </Button>
         <Button
           onClick={() => signUpWithGithub()}
@@ -144,7 +144,7 @@ export const SignUpCard = () => {
           className="w-full"
         >
           <FaGithub className="mr-2 size-5" />
-          Login with Github
+          Войти с помощью Github
         </Button>
       </CardContent>
       <div className="px-7">
@@ -152,9 +152,9 @@ export const SignUpCard = () => {
       </div>
       <CardContent className="p-7 flex items-center justify-center">
         <p>
-          Already have an account?
+          Уже есть учетная запись?
           <Link href="/sign-in">
-            <span className="text-blue-700">&nbsp;Sign In</span>
+            <span className="text-blue-700">&nbsp;Вход</span>
           </Link>
         </p>
       </CardContent>

@@ -77,19 +77,19 @@ export const TaskViewSwitcher = ({ hideProjectFilter }: TaskViewSwitcherProps) =
               className="h-8 w-full lg:w-auto"
               value="table"
             >
-              Table
+              Таблица
             </TabsTrigger>
             <TabsTrigger
               className="h-8 w-full lg:w-auto"
               value="kanban"
             >
-              Kanban
+              Канбан-доска
             </TabsTrigger>
             <TabsTrigger
               className="h-8 w-full lg:w-auto"
               value="calendar"
             >
-              Calendar
+              Календарь
             </TabsTrigger>
           </TabsList>
           <Button
@@ -98,7 +98,7 @@ export const TaskViewSwitcher = ({ hideProjectFilter }: TaskViewSwitcherProps) =
             className="w-full lg:w-auto"
           >
             <PlusIcon className="size-4 mr-2" />
-            New
+            Создать задачу
           </Button>
         </div>
         <DottedSeparator className="my-4" />

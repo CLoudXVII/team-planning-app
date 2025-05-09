@@ -27,12 +27,12 @@ export const useRegister = () => {
       return await response.json();
     },
     onSuccess: () => {
-      toast.success("Registered");
+      toast.success("Успешная регистрация");
       router.refresh();
       queryClient.invalidateQueries({ queryKey: ["current"] });
     },
     onError: () => {
-      toast.error("Failed to register");
+      toast.error("Не удалось зарегистрироваться");
     },
   });
 

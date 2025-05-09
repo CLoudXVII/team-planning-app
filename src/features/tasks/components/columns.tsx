@@ -8,7 +8,7 @@ import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { snakeCaseToTitleCase } from "@/lib/utils";
+import { taskEnumToTitle } from "@/features/tasks/utils";
 
 import { TaskDate } from "./task-date";
 import { TaskActions } from "./task-actions";
@@ -24,7 +24,7 @@ export const columns: ColumnDef<Task>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Task Name
+          Задача
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -43,7 +43,7 @@ export const columns: ColumnDef<Task>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Project
+          Проект
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -71,7 +71,7 @@ export const columns: ColumnDef<Task>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Assignee
+          Ответственный
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -99,7 +99,7 @@ export const columns: ColumnDef<Task>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Due Date
+          Срок исполнения
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -118,7 +118,7 @@ export const columns: ColumnDef<Task>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Status
+          Состояние
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -126,7 +126,7 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const status = row.original.status;
 
-      return <Badge variant={status}>{snakeCaseToTitleCase(status)}</Badge>
+      return <Badge variant={status}>{taskEnumToTitle(status)}</Badge>
     }
   },
   {

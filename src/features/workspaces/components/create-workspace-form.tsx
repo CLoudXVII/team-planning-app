@@ -74,7 +74,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
     <Card className="w-full h-full border-none shadow-none">
       <CardHeader className="flex p-7">
         <CardTitle className="text-xl font-bold">
-          Create a new workspace
+          Создать рабочее пространство
         </CardTitle>
       </CardHeader>
       <div className="px-7">
@@ -90,12 +90,12 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Workspace Name
+                      Название рабочего пространства
                     </FormLabel>
                     <FormControl>
                       <Input 
                         {...field}
-                        placeholder="Enter workspace name"
+                        placeholder="Введите название"
                       />
                     </FormControl>
                     <FormMessage />
@@ -129,8 +129,8 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                         </Avatar>
                       )}
                       <div className="flex flex-col">
-                        <p className="text-sm">Workspace Icon</p>
-                        <p className="text-sm text-muted-foreground">JPG, PNG, SVG or JPEG, max 1mb</p>
+                        <p className="text-sm">Иконка рабочего пространства</p>
+                        <p className="text-sm text-muted-foreground">JPG, PNG, SVG или JPEG, максимум 1МБ</p>
                         <input 
                           className="hidden"
                           type="file"
@@ -153,7 +153,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                               }
                             }}
                           >
-                            Remove Image
+                            Удалить изображение
                           </Button>
                         ) : (
                           <Button
@@ -164,7 +164,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                             className="w-fit mt-2"
                             onClick={() => inputRef.current?.click()}
                           >
-                            Upload Image
+                            Загрузить изображение
                           </Button>
                         )}
                       </div>
@@ -183,14 +183,14 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                 disabled={isPending}
                 className={cn(!onCancel && "invisible")}
               >
-                Cancel
+                Отмена
               </Button>
               <Button
                 disabled={isPending}
                 type="submit"
                 size="lg"
               >
-                Create Workspace
+                Создать
               </Button>
             </div>
           </form>

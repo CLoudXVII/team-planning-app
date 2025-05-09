@@ -32,21 +32,21 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
   return (
     <div className="p-4 border rounded-lg">
       <div className="flex items-center justify-between">
-        <p className="text-lg font-semibold">Description</p>
+        <p className="text-lg font-semibold">Описание</p>
         <Button onClick={() => setIsEditing((prev) => !prev)} size="sm" variant="secondary">
           {isEditing ? (
             <XIcon className="size-4 mr-2" />
           ) : (
             <PencilIcon className="size-4 mr-2" />
           )}
-          {isEditing ? "Cancel" : "Edit"}
+          {isEditing ? "Отмена" : "Редактировать"}
         </Button>
       </div>
       <DottedSeparator className="my-4" />
       {isEditing ? (
         <div className="flex flex-col gap-y-4">
           <Textarea
-            placeholder="Add a description..."
+            placeholder="Добавьте описание..."
             value={value}
             rows={4}
             onChange={(e) => setValue(e.target.value)}
@@ -58,14 +58,14 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
             onClick={handleSave}
             disabled={isPending}
           >
-            {isPending ? "Saving..." : "Save Changes"}
+            {isPending ? "Сохранение..." : "Применить"}
           </Button>
         </div>
       ) : (
         <div>
           {task.description || (
             <span className="text-muted-foreground">
-              No description set
+              Описание не задано
             </span>
           )}
         </div>

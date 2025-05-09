@@ -25,11 +25,11 @@ export const useCreateTask = () => {
       return await response.json();
     },
     onSuccess: () => {
-      toast.success("Task created");
+      toast.success("Задача создана");
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
     onError: () => {
-      toast.error("Failed to create task");
+      toast.error("Не удалось создать задачу");
     }
   });
 

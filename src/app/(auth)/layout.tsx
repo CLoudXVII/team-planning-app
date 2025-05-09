@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
@@ -22,7 +22,7 @@ const AuthLayout = ({children}: AuthLayoutProps) => {
           <Image src="/logo.svg" alt="logo" width={56} height={56} />
           <Button asChild variant="secondary">
             <Link href={isSignIn ? "/sign-up" : "/sign-in"}>
-              {isSignIn ? "Sign Up" : "Login"}
+              {isSignIn ? "Регистрация" : "Вход"}
             </Link>
           </Button>
         </nav>

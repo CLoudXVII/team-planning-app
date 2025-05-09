@@ -25,13 +25,13 @@ export const useDeleteProject = () => {
       return await response.json();
     },
     onSuccess: ({ data }) => {
-      toast.success("Project deleted");
+      toast.success("Проект  удален");
 
       queryClient.invalidateQueries({ queryKey: ["projects"] });
       queryClient.invalidateQueries({ queryKey: ["project", data.$id] });
     },
     onError: () => {
-      toast.error("Failed to delete project");
+      toast.error("Не удалось удалить проект");
     }
   });
 

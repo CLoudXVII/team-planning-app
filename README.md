@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Team Planning App
 
-## Getting Started
+---
 
-First, run the development server:
+## Дипломная работа: Веб-приложение для организации командной работы
+
+[Перейти к приложению](https://team-planning-app.vercel.app/)
+
+---
+
+## Цель проекта
+
+Создание веб-приложения для управления задачами и взаимодействием внутри команды, соответствующего требованиям современного бизнеса и открытого для расширения.
+
+---
+
+## Основные задачи
+
+1. Анализ предметной области и существующих решений.
+2. Сбор требований от целевой аудитории.
+3. Проектирование архитектуры приложения.
+4. Разработка прототипа с применением современных фреймворков.
+5. Тестирование производительности и удобства.
+6. Внедрение, стратегия масштабирования и сопровождения.
+
+---
+
+## Технологический стек
+
+| Категория       | Используемое решение                                |
+|-----------------|-----------------------------------------------------|
+| Фреймворк       | [Next.js 14](https://nextjs.org/)                   |
+| UI-библиотека   | [shadcn/ui](https://ui.shadcn.dev/) + Tailwind CSS  |
+| API-сервер      | [Hono.js](https://hono.dev/)                        |
+| Типизация       | TypeScript с end-to-end safety                      |
+| Бэкенд / БД     | [Appwrite](https://appwrite.io/)                    |
+| Аутентификация  | OAuth 2.0 (GitHub, Google) через Appwrite           |
+| Хостинг         | [Vercel](https://vercel.com/)                       |
+
+---
+
+## Архитектура проекта
+
+- **Frontend**: CSR/SSR-комбинация на Next.js.
+- **UI**: компонентный подход с возможностью полной кастомизации.
+- **Backend API**: реализован на Hono.js с полной типизацией.
+- **Appwrite**: выполняет роль базы данных, системы сессий и OAuth-провайдера.
+- **MVC**: Приложение использует шаблоны проектирования и событийную модель.
+
+---
+
+## Как запустить
 
 ```bash
+git clone https://github.com/CLoudXVII/team-planning-app.git
+cd team-planning-app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

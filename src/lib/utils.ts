@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -12,10 +12,4 @@ export function generateInviteCode(length: number) {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return result;
-};
-
-export function snakeCaseToTitleCase(str: string) {
-  return str.toLowerCase()
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase())
 };

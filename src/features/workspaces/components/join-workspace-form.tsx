@@ -38,10 +38,10 @@ export const JoinWorkspaceForm = ({ initialValues }: JoinWorkspaceFormProps) => 
     <Card className="w-full h-full border-none shadow-none">
       <CardHeader className="p7">
         <CardTitle className="text-xl font-bold">
-          Join Workspace
+          Приглашение
         </CardTitle>
         <CardDescription>
-          You&apos;ve been invited to join <strong>{initialValues.name}</strong> workspace
+          Вас пригласили присоединиться к рабочей области <strong>"{initialValues.name}"</strong>
         </CardDescription>
       </CardHeader>
       <div className="px-7">
@@ -58,7 +58,7 @@ export const JoinWorkspaceForm = ({ initialValues }: JoinWorkspaceFormProps) => 
             disabled={isPending}
           >
             <Link href="/">
-              Cancel
+              Отклонить
             </Link>
           </Button>
           <Button
@@ -68,7 +68,7 @@ export const JoinWorkspaceForm = ({ initialValues }: JoinWorkspaceFormProps) => 
             onClick={onSubmit}
             disabled={isPending}
           >
-            Join Workspace
+            Принять приглашение
           </Button>
         </div>
       </CardContent>

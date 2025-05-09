@@ -8,18 +8,18 @@ import { MobileSidebar } from "./mobile-sidebar";
 
 const pathnameMap = {
   "tasks": {
-    title: "My Tasks",
-    description: "View all of your tasks here",
+    title: "Задачи",
+    description: "Просмотрите все свои задачи здесь",
   },
   "projects": {
-    title: "My Project",
-    description: "View tasks of your project here"
+    title: "Проект",
+    description: "Просмотреть задачи вашего проекта можно здесь"
   },
 };
 
 const defaultMap = {
-  title: "Home",
-  description: "Monitor all of your projects and tasks here",
+  title: "Главная",
+  description: "Отслеживайте все свои проекты и задачи здесь",
 };
 
 export const Navbar = () => {

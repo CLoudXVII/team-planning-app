@@ -27,8 +27,8 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
   const { open } = useEditTaskModal();
   
   const [ConfirmDialog, confirm] = useConfirm(
-    "Delete task",
-    "This action cannot be undone.",
+    "Удалить задачу",
+    "Это действие необратимо.",
     "destructive"
   );
   const { mutate, isPending } = useDeleteTask();
@@ -61,21 +61,21 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
             className="font-medium p-[10px]"
           >
             <ExternalLinkIcon className="size-4 mr-2 stroke-2" />
-            Task Details
+            О задаче
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={onOpenProject}
             className="font-medium p-[10px]"
           >
             <ExternalLinkIcon className="size-4 mr-2 stroke-2" />
-            Open Project
+            Открыть проект
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => open(id)}
             className="font-medium p-[10px]"
           >
             <PencilIcon className="size-4 mr-2 stroke-2" />
-            Edit Task
+            Изменить задачу
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={onDelete}
@@ -83,7 +83,7 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
             className="text-amber-700 focus:text-amber-700 font-medium p-[10px]"
           >
             <TrashIcon className="size-4 mr-2 stroke-2" />
-            Delete Task
+            Удалить задачу
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

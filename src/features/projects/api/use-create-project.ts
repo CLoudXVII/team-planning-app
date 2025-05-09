@@ -25,11 +25,11 @@ export const useCreateProject = () => {
       return await response.json();
     },
     onSuccess: () => {
-      toast.success("Project created");
+      toast.success("Проект  создан");
       queryClient.invalidateQueries({ queryKey: ["projects"] });
     },
     onError: () => {
-      toast.error("Failed to create project");
+      toast.error("Не удалось создать проект");
     }
   });
 

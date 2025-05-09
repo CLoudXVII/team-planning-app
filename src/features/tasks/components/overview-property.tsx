@@ -9,7 +9,7 @@ export const OverviewProperty = ({
 }: OverviewPropertyProps) => {
   return (
     <div className="flex items-start gap-x-2">
-      <div className="min-w-[100px]">
+      <div className="min-w-[140px]">
         <p className="text-sm text-muted-foreground"> 
           {label}
         </p>

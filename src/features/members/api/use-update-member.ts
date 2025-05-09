@@ -25,11 +25,11 @@ export const useUpdateMember = () => {
       return await response.json();
     },
     onSuccess: () => {
-      toast.success("Member updated");
+      toast.success("Участник успшено обновлен");
       queryClient.invalidateQueries({ queryKey: ["members"] });
     },
     onError: () => {
-      toast.error("Failed to update member");
+      toast.error("Не удалось обновить участника");
     },
   });
 
