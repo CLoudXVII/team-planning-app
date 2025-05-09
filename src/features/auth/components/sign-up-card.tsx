@@ -1,18 +1,30 @@
 "use client";
 
-import Link from "next/link";
-
 import { z } from "zod";
+import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 
 import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
@@ -45,18 +57,18 @@ export const SignUpCard = () => {
             <span className="text-blue-700">Privacy Policy</span>
           </Link>{" "}
           and{" "}
-          <Link href="/privacy">
+          <Link href="/terms">
             <span className="text-blue-700">Terms of Service</span>
           </Link>
         </CardDescription>
       </CardHeader>
       <div className="px-7">
-        <DottedSeparator />
+        <DottedSeparator  />
       </div>
       <CardContent className="p-7">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField 
+            <FormField
               name="name"
               control={form.control}
               render={({ field }) => (
@@ -72,7 +84,7 @@ export const SignUpCard = () => {
                 </FormItem>
               )}
             />
-            <FormField 
+            <FormField
               name="email"
               control={form.control}
               render={({ field }) => (
@@ -88,7 +100,7 @@ export const SignUpCard = () => {
                 </FormItem>
               )}
             />
-            <FormField 
+            <FormField
               name="password"
               control={form.control}
               render={({ field }) => (
@@ -97,7 +109,7 @@ export const SignUpCard = () => {
                     <Input
                       {...field}
                       type="password"
-                      placeholder="Enter password"
+                      placeholder="Enter your password"
                     />
                   </FormControl>
                   <FormMessage />
@@ -114,11 +126,23 @@ export const SignUpCard = () => {
         <DottedSeparator />
       </div>
       <CardContent className="p-7 flex flex-col gap-y-4">
-        <Button disabled={isPending} variant="secondary" size="lg" className="w-full">
+        <Button
+          onClick={() => signUpWithGoogle()}
+          disabled={isPending}
+          variant="secondary"
+          size="lg"
+          className="w-full"
+        >
           <FcGoogle className="mr-2 size-5" />
           Login with Google
         </Button>
-        <Button disabled={isPending} variant="secondary" size="lg" className="w-full">
+        <Button
+          onClick={() => signUpWithGithub()}
+          disabled={isPending}
+          variant="secondary"
+          size="lg"
+          className="w-full"
+        >
           <FaGithub className="mr-2 size-5" />
           Login with Github
         </Button>
@@ -129,10 +153,10 @@ export const SignUpCard = () => {
       <CardContent className="p-7 flex items-center justify-center">
         <p>
           Already have an account?
+          <Link href="/sign-in">
+            <span className="text-blue-700">&nbsp;Sign In</span>
+          </Link>
         </p>
-        <Link href={"/sign-in"}>
-          <span className="text-blue-700">&nbsp;Login</span>
-        </Link>
       </CardContent>
     </Card>
   );
