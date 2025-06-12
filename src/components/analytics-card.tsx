@@ -1,3 +1,4 @@
+import { IconType } from "react-icons/lib";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
@@ -11,7 +12,7 @@ import {
 interface AnalyticsCardProps {
   title: string;
   value: number;
-  variant: "up" | "down";
+  variant: "up" | "down" | "upBad" | "downGood";
   increaseValue: number;
 };
 
@@ -21,10 +22,36 @@ export const AnalyticsCard = ({
   variant,
   increaseValue
 }: AnalyticsCardProps) => {
-  const iconColor = variant === "up" ? "text-emerald-500" : "text-red-500";
-  const increaseValueColor =
-    variant === "up" ? "text-emerald-500" : "text-red-500";
-  const Icon = variant === "up" ? FaCaretUp : FaCaretDown; 
+  let iconColor: string = "";
+  let increaseValueColor: string = "";
+  let Icon: IconType | undefined = undefined; 
+
+  switch (variant) {
+    case "up":
+      iconColor = "text-emerald-500";
+      increaseValueColor = "text-emerald-500";
+      Icon = FaCaretUp;
+      break;
+    case "down":
+      iconColor = "text-red-500";
+      increaseValueColor = "text-red-500";
+      Icon = FaCaretDown;
+      break;
+    case "upBad":
+      iconColor = "text-red-500";
+      increaseValueColor = "text-red-500";
+      Icon = FaCaretUp;
+      break;
+    case "downGood":
+      iconColor = "text-emerald-500";
+      increaseValueColor = "text-emerald-500";
+      Icon = FaCaretDown;
+      break;
+    default:
+      iconColor = "text-emerald-500";
+      increaseValueColor = "text-emerald-500";
+      Icon = FaCaretUp;
+  }
 
   return (
     <Card className="shadow-none border-none w-full">
