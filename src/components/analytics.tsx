@@ -39,7 +39,7 @@ export const Analytics = ({ data }: ProjectAnalyticsResponseType) => {
           <AnalyticsCard
             title="Просроченные задачи"
             value={data.overdueTaskCount}
-            variant={data.overdueTaskDifference > 0 ? "up" : "down"}
+            variant={data.overdueTaskDifference > 0 ? "upBad" : "downGood"}
             increaseValue={data.overdueTaskDifference}
           />
           <DottedSeparator direction="vertical" />
@@ -48,7 +48,7 @@ export const Analytics = ({ data }: ProjectAnalyticsResponseType) => {
           <AnalyticsCard
             title="Незавершенные задачи"
             value={data.incompleteTaskCount}
-            variant={data.incompleteTaskDifference > 0 ? "up" : "down"}
+            variant={data.incompleteTaskDifference > 0 ? "upBad" : "downGood"}
             increaseValue={data.incompleteTaskDifference}
           />
           <DottedSeparator direction="vertical" />
