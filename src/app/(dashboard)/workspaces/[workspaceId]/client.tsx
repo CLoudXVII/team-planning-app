@@ -83,7 +83,7 @@ export const TaskList = ({ data, total }: TaskListProps) => {
         </div>
         <DottedSeparator className="my-4" />
         <ul className="flex flex-col gap-y-4">
-          {data.map((task) => (
+          {data.slice(0, 5).map((task) => (
             <li key={task.$id}>
               <Link href={`/workspaces/${workspaceId}/tasks/${task.$id}`}>
                 <Card className="shadow-none rounded-lg hover:opacity-75 transition">
@@ -139,12 +139,12 @@ export const ProjectList = ({ data, total }: ProjectListProps) => {
           </Button>
         </div>
         <DottedSeparator className="my-4" />
-        <ul className="flex flex-col gap-y-4">
-          {data.map((project) => (
+        <ul className="flex flex-col gap-y-[15px]">
+          {data.slice(0, 5).map((project) => (
             <li key={project.$id}>
               <Link href={`/workspaces/${workspaceId}/projects/${project.$id}`}>
                 <Card className="shadow-none rounded-lg hover:opacity-75 transition">
-                  <CardContent className="p-4 flex items-center gap-x-2.5">
+                  <CardContent className="p-[18px] flex items-center gap-x-2.5">
                     <ProjectAvatar
                       className="size-12"
                       fallbackClassName="text-lg"
