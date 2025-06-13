@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import { ArrowLeftIcon, MoreVerticalIcon } from "lucide-react";
 
 import { MemberRole } from "@/features/members/types";
-import { useCurrent } from "@/features/auth/api/use-current";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { useDeleteMember } from "@/features/members/api/use-delete-member";
 import { useUpdateMember } from "@/features/members/api/use-update-member";
@@ -20,7 +19,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export const MembersList = () => {
-  const user = useCurrent()
   const workspaceId = useWorkspaceId();
   const [ConfirmDialog, confirm] = useConfirm(
     "Удалить участника",
