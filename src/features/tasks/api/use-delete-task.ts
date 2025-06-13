@@ -19,7 +19,7 @@ export const useDeleteTask = () => {
       const response = await client.api.tasks[":taskId"]["$delete"]({ param });
 
       if (!response.ok) {
-        throw new Error("Failed to delete task");
+        throw new Error("Не удалось удалить задачу");
       }
 
       return await response.json();
