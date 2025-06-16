@@ -33,3 +33,17 @@ export async function signUpWithGoogle() {
 
 	return redirect(redirectUrl);
 };
+
+export async function signUpWithYandex() {
+		const { account } = await createAdminClient();
+
+	const origin = headers().get("origin");
+
+	const redirectUrl = await account.createOAuth2Token(
+		OAuthProvider.Yandex,
+		`${origin}/oauth`,
+		`${origin}/sign-up`,
+	);
+
+	return redirect(redirectUrl);
+}
