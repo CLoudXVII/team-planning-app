@@ -28,16 +28,14 @@
 | UI-библиотека   | [shadcn/ui](https://ui.shadcn.dev/) + [Tailwind CSS](https://tailwindcss.com/)  |
 | API             | [Hono.js](https://hono.dev/)                                                    |
 | Бэкенд          | [Appwrite](https://appwrite.io/)                                                |
-| Аутентификация  | JWT и OAuth 2.0 (GitHub, Google)                                                |
+| Аутентификация  | JWT и OAuth 2.0                                                                 |
 | Хостинг         | [Vercel](https://vercel.com/)                                                   |
 
 ## Архитектура проекта
 
 - **Frontend**: CSR/SSR-комбинация на Next.js.
-- **UI**: компонентный подход с возможностью кастомизации при помощи shadcn/ui и Tailwind CSS для стилей.
-- **API**: реализован на Hono.js с end-to-end типизацией.
+- **API**: реализован на Hono.
 - **Appwrite**: выполняет роль базы данных, системы сессий и OAuth-провайдера.
-- **MVC**: Приложение использует шаблоны проектирования и событийную модель.
 
 ## Как запустить dev версию
 
